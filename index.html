@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> GitHub Portfolio Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="home">
+    <!-- Animated Background -->
+    <div class="gradient-bg"></div>
+    
+    <div class="container">
+        <!-- Header with Logo -->
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                <span>DevMirror <span class="highlight"></span></span>
+            </div>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-content">
+                <h1 class="animate-text">
+                    Analyze Your <span class="gradient-text">GitHub Portfolio</span>
+                </h1>
+                <p class="subtitle">Get instant insights, score, and personalized recommendations to improve your developer profile</p>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="analyzer-card">
+            <div class="card-glow"></div>
+            <div class="card-content">
+                <div class="input-group">
+                    <i class="fas fa-github input-icon"></i>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        placeholder="Enter GitHub username (e.g., octocat)"
+                        autocomplete="off"
+                    >
+                    <button onclick="goToResult()" id="analyze-btn">
+                        <span>Analyze Profile</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Quick Examples -->
+                <div class="examples">
+                    <p class="examples-label">Try popular profiles:</p>
+                    <div class="example-tags">
+                        <span onclick="fillUsername('torvalds')">torvalds</span>
+                        <span onclick="fillUsername('gaearon')">gaearon</span>
+                        <span onclick="fillUsername('yyx990803')">yyx990803</span>
+                        <span onclick="fillUsername('mojombo')">mojombo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-chart-line"></i>
+                <h3>Smart Scoring</h3>
+                <p>Get a comprehensive score based on repos, followers, and activity</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-lightbulb"></i>
+                <h3>AI Insights</h3>
+                <p>Receive personalized suggestions to improve your profile</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Instant Analysis</h3>
+                <p>Real-time GitHub data fetching with detailed metrics</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goToResult() {
+            let username = document.getElementById("username").value.trim();
+            
+            if (username === "") {
+                showToast("Please enter a GitHub username", "error");
+                return;
+            }
+
+            // Show loading state
+            const btn = document.getElementById("analyze-btn");
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyzing...';
+            btn.disabled = true;
+
+            // Store username and redirect
+            localStorage.setItem("githubUser", username);
+            
+            // Simulate slight delay for better UX
+            setTimeout(() => {
+                window.location.href = "result.html";
+            }, 500);
+        }
+
+        function fillUsername(username) {
+            document.getElementById("username").value = username;
+        }
+
+        function showToast(message, type) {
+            // Simple alert for now - can be enhanced with custom toast
+            alert(message);
+        }
+
+        // Theme toggle
+        document.querySelector('.theme-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('light-theme');
+            const icon = this.querySelector('i');
+            if (document.body.classList.contains('light-theme')) {
+                icon.className = 'fas fa-sun';
+            } else {
+                icon.className = 'fas fa-moon';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result - DevScore Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="result-page">
+    <div class="gradient-bg"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo" onclick="goBack()" style="cursor: pointer;">
+                <i class="fas fa-code"></i>
+                <span>DevScore<span class="highlight">Pro</span></span>
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn" onclick="toggleDark()" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="icon-btn" onclick="goBack()">
+                    <i class="fas fa-home"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Result Card -->
+        <div class="result-card">
+            <div class="result-header">
+                <h2><i class="fas fa-chart-pie"></i> Portfolio Analysis Report</h2>
+                <div class="result-meta">
+                    <span class="badge" id="analysisDate"></span>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="loading-state">
+                <div class="spinner"></div>
+                <p>Fetching GitHub data...</p>
+                <small>This may take a few seconds</small>
+            </div>
+
+            <!-- Result Content -->
+            <div id="result" style="display: none;"></div>
+
+            <!-- Error State -->
+            <div id="errorState" class="error-state" style="display: none;">
+                <i class="fas fa-exclamation-circle"></i>
+                <h3>Oops! Something went wrong</h3>
+                <p id="errorMessage"></p>
+                <button onclick="goBack()" class="primary-btn">
+                    <i class="fas fa-arrow-left"></i> Try Again
+                </button>
+            </div>
+        </div>
+
+        <!-- Share Section -->
+        <div class="share-section">
+            <p>Share your result:</p>
+            <div class="share-buttons">
+                <button class="share-btn twitter" onclick="shareOnTwitter()">
+                    <i class="fab fa-twitter"></i>
+                </button>
+                <button class="share-btn linkedin" onclick="shareOnLinkedIn()">
+                    <i class="fab fa-linkedin"></i>
+                </button>
+                <button class="share-btn copy" onclick="copyLink()">
+                    <i class="fas fa-link"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="result.js"></script>
+</body>
+</html>
