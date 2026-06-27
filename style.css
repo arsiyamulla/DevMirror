@@ -36,7 +36,7 @@ body {
 
 /* Light Theme */
 body.light-theme {
-    background: #f0f4f8;
+    background: #ecedef;
     color: var(--dark);
 }
 
