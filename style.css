@@ -235,7 +235,7 @@ body.light-theme .box p {
     background: var(--gradient-1);
     border: none;
     border-radius: 20px;
-    color: white;
+    color: rgb(255, 255, 255);
     font-weight: 600;
     font-size: 1.1rem;
     cursor: pointer;
