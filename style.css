@@ -227,7 +227,7 @@ body.light-theme .box p {
 .input-group input:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(79,70,229,0.2);
+    box-shadow: 0 0 0 4px rgba(72, 65, 212, 0.2);
 }
 
 .input-group button {
