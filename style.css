@@ -357,7 +357,7 @@ body.light-theme .box p {
 
 .badge {
     padding: 0.5rem 1rem;
-    background: rgba(73, 66, 213, 0.2);
+    background: rgba(68, 61, 196, 0.2);
     border: 1px solid var(--primary);
     border-radius: 50px;
     font-size: 0.9rem;
